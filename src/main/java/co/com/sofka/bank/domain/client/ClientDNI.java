@@ -1,7 +1,9 @@
 package co.com.sofka.bank.domain.client;
 
-import lombok.Getter;
+import static co.com.sofka.bank.domain.util.ArgumentChecker.checkIsValidString;
 
 public record ClientDNI(String dni) {
-    /* TODO validaciones */
+    public ClientDNI {
+        checkIsValidString(dni, "dni is required");
+    }
 }

@@ -41,4 +41,14 @@ public class GlobalExceptionHandler {
                 HttpStatus.UNAUTHORIZED);
     }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ResponseException> handleException(IllegalArgumentException e) {
+        return new ResponseEntity<>(
+                ResponseException.builder()
+                        .code("0")
+                        .msg(e.getMessage())
+                        .build(),
+                HttpStatus.BAD_REQUEST);
+    }
+
 }

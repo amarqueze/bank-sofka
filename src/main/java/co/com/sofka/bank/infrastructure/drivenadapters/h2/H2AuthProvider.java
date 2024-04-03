@@ -16,8 +16,8 @@ public class H2AuthProvider implements AuthProvider {
     @Override
     public Client authenticate(UserAuth userAuth) {
         User user = userRepository.findByNicknameAndPassword(
-                userAuth.getNickname(),
-                userAuth.getPassword()
+                userAuth.nickname(),
+                userAuth.password()
         );
 
         return Optional.ofNullable(user)
