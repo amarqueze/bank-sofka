@@ -1,4 +1,4 @@
-package co.com.sofka.bank.infrastructure.drivenadapters.h2;
+package co.com.sofka.bank.infrastructure.drivenadapters.h2.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

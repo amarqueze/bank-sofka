@@ -1,4 +1,7 @@
 package co.com.sofka.bank.domain.client;
 
-public class Account {
+import lombok.Builder;
+
+@Builder
+public record Account(String accountNumber, AccountStatus status) {
 }

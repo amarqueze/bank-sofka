@@ -1,4 +1,4 @@
-package co.com.sofka.bank.infrastructure.drivenadapters.h2;
+package co.com.sofka.bank.infrastructure.drivenadapters.h2.model;
 
 import co.com.sofka.bank.domain.client.AccountStatus;
 import jakarta.persistence.*;

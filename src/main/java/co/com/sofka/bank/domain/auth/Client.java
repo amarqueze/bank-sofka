@@ -8,15 +8,10 @@ import lombok.Getter;
 public class Client {
     private String dni;
     private String name;
-    private String lastName;
-    private String address;
-    private String phone;
 
-    public Client(String dni, String name, String lastName, String address) {
+    public Client(String dni, String name) {
         /* TODO validaciones*/
         this.dni = dni;
         this.name = name;
-        this.lastName = lastName;
-        this.address = address;
     }
 }
