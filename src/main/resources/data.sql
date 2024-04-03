@@ -1,4 +1,8 @@
-INSERT INTO accounts (account_number, balance) VALUES ('123456789', '1000.00');
-INSERT INTO accounts (account_number, balance) VALUES ('987654321', '2500.50');
-INSERT INTO accounts (account_number, balance) VALUES ('555555555', '500.75');
-INSERT INTO accounts (account_number, balance) VALUES ('888888888', '7500.25');
+INSERT INTO Clients (dni, name, last_name, address, phone) VALUES ('1047488553', 'Alan', 'Marquez', 'Calle 123', '1234567890');
+INSERT INTO Clients (dni, name, last_name, address, phone) VALUES ('1047488555', 'Jhon', 'Doe', 'Avenida 456', '0987654321');
+
+INSERT INTO Users (nickname, password, client_id) VALUES ('alan.marquez', 'password1', 1);
+INSERT INTO Users (nickname, password, client_id) VALUES ('joe.doe', 'password2', 2);
+
+INSERT INTO Accounts (account_number, balance, status, client_id) VALUES ('123456789', 1000.00, 'ACTIVE', 1);
+INSERT INTO Accounts (account_number, balance, status, client_id) VALUES ('987654321', 500.00, 'ACTIVE', 2);
