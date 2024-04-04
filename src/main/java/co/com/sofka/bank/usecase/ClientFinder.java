@@ -1,9 +1,9 @@
 package co.com.sofka.bank.usecase;
 
-import co.com.sofka.bank.domain.client.BankingInformationProvider;
-import co.com.sofka.bank.domain.client.Client;
-import co.com.sofka.bank.domain.client.ClientDNI;
-import co.com.sofka.bank.domain.client.ClientNotFound;
+import co.com.sofka.bank.domain.clientinfo.BankingInformationProvider;
+import co.com.sofka.bank.domain.clientinfo.Client;
+import co.com.sofka.bank.domain.clientinfo.ClientDNI;
+import co.com.sofka.bank.domain.clientinfo.ClientNotFound;
 
 import java.util.Objects;
 

@@ -1,7 +1,7 @@
 package co.com.sofka.bank.infrastructure.entrypoints;
 
-import co.com.sofka.bank.domain.client.AccountDetails;
-import co.com.sofka.bank.domain.client.AccountNumber;
+import co.com.sofka.bank.domain.clientinfo.AccountDetails;
+import co.com.sofka.bank.domain.clientinfo.AccountNumber;
 import co.com.sofka.bank.usecase.AccountDetailsFinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

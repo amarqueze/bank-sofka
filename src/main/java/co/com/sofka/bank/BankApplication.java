@@ -2,6 +2,9 @@ package co.com.sofka.bank;
 
 import co.com.sofka.bank.infrastructure.drivenadapters.h2.H2AuthProvider;
 import co.com.sofka.bank.infrastructure.drivenadapters.h2.H2BankingInformationProvider;
+import co.com.sofka.bank.infrastructure.drivenadapters.h2.H2CashDepositProcessor;
+import co.com.sofka.bank.infrastructure.drivenadapters.h2.H2TransferDepositProcessor;
+import co.com.sofka.bank.usecase.AccountDepositor;
 import co.com.sofka.bank.usecase.AccountDetailsFinder;
 import co.com.sofka.bank.usecase.ClientAuthenticator;
 import co.com.sofka.bank.usecase.ClientFinder;
@@ -35,5 +38,10 @@ public class BankApplication {
 	@Bean
 	public AccountDetailsFinder getAccountDetailsFinder(H2BankingInformationProvider provider) {
 		return new AccountDetailsFinder(provider);
+	}
+
+	@Bean
+	public AccountDepositor getAccountDepositor(H2CashDepositProcessor cashDepositProcessor, H2TransferDepositProcessor transferDepositProcessor) {
+		return new AccountDepositor(cashDepositProcessor, transferDepositProcessor);
 	}
 }

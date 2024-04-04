@@ -1,11 +1,15 @@
 package co.com.sofka.bank.infrastructure.drivenadapters.h2;
 
-import co.com.sofka.bank.domain.client.*;
+import co.com.sofka.bank.domain.clientinfo.*;
 import co.com.sofka.bank.infrastructure.drivenadapters.h2.repository.AccountRepository;
 import co.com.sofka.bank.infrastructure.drivenadapters.h2.repository.ClientRepository;
+import co.com.sofka.bank.infrastructure.drivenadapters.h2.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Component
@@ -13,6 +17,7 @@ import java.util.Optional;
 public class H2BankingInformationProvider implements BankingInformationProvider {
     private final ClientRepository clientRepository;
     private final AccountRepository accountRepository;
+    private final TransactionRepository transactionRepository;
 
     @Override
     public Client findClient(ClientDNI clientDNI) {
@@ -45,8 +50,27 @@ public class H2BankingInformationProvider implements BankingInformationProvider 
                         .accountNumber(a.getAccountNumber())
                         .balance(a.getBalance())
                         .status(a.getStatus())
+                        .transactions(getTransactions(accountNumber))
                         .build()
                 )
                 .orElse(null);
+    }
+
+    private List<Transaction> getTransactions(AccountNumber accountNumber) {
+        var transactions = transactionRepository.findByAccountNumber(accountNumber.number());
+        if (Objects.isNull(transactions) || transactions.isEmpty())
+            return new ArrayList<>();
+
+        return transactions.stream()
+                .map(t -> Transaction.builder()
+                        .Operation(accountNumber.number().equals(t.getDestinationAccount()) ?
+                                "DEBIT" : "CREDIT"
+                        )
+                        .amount(t.getAmount())
+                        .date(t.getDate())
+                        .description(t.getDescription())
+                        .build()
+                )
+                .toList();
     }
 }

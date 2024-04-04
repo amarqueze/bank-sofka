@@ -1,9 +1,9 @@
 package co.com.sofka.bank.usecase;
 
-import co.com.sofka.bank.domain.client.AccountDetails;
-import co.com.sofka.bank.domain.client.AccountNotFound;
-import co.com.sofka.bank.domain.client.AccountNumber;
-import co.com.sofka.bank.domain.client.BankingInformationProvider;
+import co.com.sofka.bank.domain.clientinfo.AccountDetails;
+import co.com.sofka.bank.domain.clientinfo.AccountNotFound;
+import co.com.sofka.bank.domain.clientinfo.AccountNumber;
+import co.com.sofka.bank.domain.clientinfo.BankingInformationProvider;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Objects;

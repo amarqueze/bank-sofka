@@ -1,4 +1,4 @@
-package co.com.sofka.bank.domain.client;
+package co.com.sofka.bank.domain.clientinfo;
 
 public class ClientNotFound extends RuntimeException {
     public static String CODE = "CLT-01";

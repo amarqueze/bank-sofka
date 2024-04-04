@@ -1,7 +1,7 @@
 package co.com.sofka.bank.infrastructure.entrypoints;
 
-import co.com.sofka.bank.domain.client.Client;
-import co.com.sofka.bank.domain.client.ClientDNI;
+import co.com.sofka.bank.domain.clientinfo.Client;
+import co.com.sofka.bank.domain.clientinfo.ClientDNI;
 import co.com.sofka.bank.usecase.ClientFinder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

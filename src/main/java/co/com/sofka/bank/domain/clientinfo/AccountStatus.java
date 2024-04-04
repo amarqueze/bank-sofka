@@ -1,4 +1,4 @@
-package co.com.sofka.bank.domain.client;
+package co.com.sofka.bank.domain.clientinfo;
 
 public enum AccountStatus {
     ACTIVE, INACTIVE

@@ -1,8 +1,8 @@
 package co.com.sofka.bank.infrastructure.entrypoints;
 
 import co.com.sofka.bank.domain.auth.AuthenticationFailed;
-import co.com.sofka.bank.domain.client.AccountNotFound;
-import co.com.sofka.bank.domain.client.ClientNotFound;
+import co.com.sofka.bank.domain.clientinfo.AccountNotFound;
+import co.com.sofka.bank.domain.clientinfo.ClientNotFound;
 import co.com.sofka.bank.infrastructure.entrypoints.dto.ResponseException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
