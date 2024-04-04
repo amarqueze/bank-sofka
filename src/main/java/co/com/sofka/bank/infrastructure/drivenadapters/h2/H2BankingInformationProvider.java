@@ -63,7 +63,7 @@ public class H2BankingInformationProvider implements BankingInformationProvider 
 
         return transactions.stream()
                 .map(t -> Transaction.builder()
-                        .Operation(accountNumber.number().equals(t.getDestinationAccount()) ?
+                        .operation(accountNumber.number().equals(t.getDestinationAccount()) ?
                                 "DEBIT" : "CREDIT"
                         )
                         .amount(t.getAmount())

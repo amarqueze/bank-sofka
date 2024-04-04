@@ -6,5 +6,5 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Builder
-public record Transaction(String description, BigDecimal amount, String Operation, Date date) {
+public record Transaction(String description, BigDecimal amount, String operation, Date date) {
 }
