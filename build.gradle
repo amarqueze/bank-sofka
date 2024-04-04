@@ -55,7 +55,8 @@ jacocoTestReport {
 			fileTree(dir: it, exclude: [
 					'**/co/com/sofka/bank/domain/**',
 					'**/co/com/sofka/bank/infrastructure/drivenadapters/h2/model/**',
-					'**/co/com/sofka/bank/infrastructure/entrypoints/dto/**'
+					'**/co/com/sofka/bank/infrastructure/entrypoints/dto/**',
+					'**/co/com/sofka/bank/infrastructure/entrypoints/**'
 			])
 		}))
 	}

@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -70,6 +71,13 @@ class H2BankingInformationProviderTest {
         accountDAO.setStatus(AccountStatus.ACTIVE);
 
         List<co.com.sofka.bank.infrastructure.drivenadapters.h2.model.Transaction> transactions = new ArrayList<>();
+        co.com.sofka.bank.infrastructure.drivenadapters.h2.model.Transaction transactionDAO = new co.com.sofka.bank.infrastructure.drivenadapters.h2.model.Transaction();
+        transactionDAO.setDate(new Date());
+        transactionDAO.setAmount(new BigDecimal(100));
+        transactionDAO.setDescription("Test transaction");
+        transactionDAO.setSourceAccount("000000000");
+        transactionDAO.setDestinationAccount("123456789");
+        transactions.add(transactionDAO);
 
         when(accountRepository.findByAccountNumber(accountNumber.number())).thenReturn(accountDAO);
         when(transactionRepository.findByAccountNumber(accountNumber.number())).thenReturn(transactions);
