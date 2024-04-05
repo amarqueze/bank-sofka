@@ -1,0 +1,91 @@
+<div class="landing">
+    <section class="item-header">
+        <div style="font-size: 24px; font-weight: bold;">
+            Hola {{ client.name }} {{ client.lastName }}!
+        </div>
+        <div style="width: 200px;">
+            <div style="display: inline-block; width: 100px; margin-right: 5px;">
+                <button class="button-primary"> Alertas </button>
+            </div>
+            <div style="display: inline-block; width: 70px;">
+                <button class="button-primary" (click)="logout()"> Salir </button>
+            </div>
+        </div>
+    </section>
+    <section class="item-content">
+        <div class="product-title mt-5">
+            Cuentas
+        </div>
+        <div class="product">
+            <div class="card" *ngFor="let account of client.accounts">
+                <div class="card-content">
+                  <h4><b>Cuenta</b></h4> 
+                  <p> {{ account.accountNumber }}</p> <strong> {{ account.status}}</strong>
+                  <div class="mt-5" style="display: flex;"> 
+                    <button class="button-primary mr-5" (click)="openModalAccount(account.accountNumber)"> Ver Detalle </button>
+                    <button class="button-primary" (click)="openModalTransfer(account.accountNumber)"> Transferir </button>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-title mt-5">
+            Tarjetas Débito
+        </div>
+        <div class="product">
+            <div class="card">
+                <div class="card-content">
+                  <h4><b>VISA</b></h4> 
+                  <p>4970110000000062</p> 
+                  <div class="mt-5"> 
+                    <button class="button-primary"> Ver Tarjeta </button>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-title mt-5">
+            Tarjetas Crédito
+        </div>
+        <div class="product">
+            <div class="card">
+                <div class="card-content">
+                  <h4><b>Mastercard</b></h4> 
+                  <p>5100010000000015</p>
+                  <button class="button-primary"> Ver Tarjeta </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="modal" *ngIf="showModalTransfer">
+    <div class="modal-content p-10">
+        <span class="close" title="Close Modal" (click)="showModalTransfer = false">&times;</span>
+        <label for="accountNumber"><b>Cuenta</b></label>
+        <input type="text" name="accountNumber" [(ngModel)]="transfer.destination">
+        <label for="amount"><b>Monto</b></label>
+        <input type="number" name="amount" [(ngModel)]="transfer.amount">
+        <span *ngIf="errMsg" class="" style="color: red"> {{ errMsg }} </span>
+        <button class="button-primary mt-5" (click)="toTransfer()"> Transferir </button>
+    </div>
+</div>
+
+<div class="modal" *ngIf="showModalAccount">
+    <div class="modal-content p-10">
+        <span class="close" title="Close Modal" (click)="showModalAccount = false">&times;</span>
+        <p class="landing-title"> Cuenta {{ accountDetail.accountNumber }} </p>
+        <p class="landing-title"> Saldo: {{ accountDetail.balance }} </p> 
+        <p class="landing-title mt-15"> Transacciones </p>
+        <hr>
+        <div class="transaction-item p-10">
+            <div style="width: 60%;"> <strong>Descripción</strong> </div>
+            <div style="width: 20%;"> <strong>Valor</strong> </div>
+        </div>
+        <div class="transaction-item p-10" *ngFor="let transaction of accountDetail.transactions">
+            <div style="width: 60%;"> {{ transaction.description }} </div>
+            <div style="width: 20%;"  [ngClass]="{'debit': transaction.operation === 'DEBIT', 'credit': transaction.operation === 'CREDIT'}"> 
+                {{ transaction.operation === 'DEBIT' ? '+' : '-' }} {{ transaction.amount }} 
+            </div>
+        </div>
+    </div>
+</div>
+

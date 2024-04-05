@@ -42,7 +42,7 @@ public class H2CashDepositProcessor implements CashDepositProcessor {
         transaction.setSourceAccount("000000000");
         transaction.setDestinationAccount(account.getAccountNumber());
         transaction.setAmount(cashDeposit.amount());
-        transaction.setDescription("Abono en caja");
+        transaction.setDescription("ABONO EN CAJA");
         transaction.setDate(date);
         transactionRepository.save(transaction);
     }

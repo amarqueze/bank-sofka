@@ -1,0 +1,64 @@
+.landing {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 50px auto;
+    grid-template-areas:
+        "header header header header"
+        "content content content content";
+
+    .item-header {
+        grid-area: header;
+        padding: 5px;
+        display: flex;
+        justify-content: space-between
+    }
+
+    .item-content {
+        grid-area: content;
+        padding: 15px;
+
+        .product-title {
+            font-size: 24px; font-weight: bold;
+        }
+
+        .product {
+            display: flex;
+            height: 140px;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            width: 25%;
+            height: 120px;
+            margin-right: 10px;
+        }
+          
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+        
+        .card-content {
+            padding: 10px 16px 5px 16px;
+        }
+    }
+}
+
+.landing-title {
+    font-size: 24px; font-weight: bold;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between
+}
+
+.debit {
+    color: green;
+}
+  
+.credit {
+    color: red;
+}

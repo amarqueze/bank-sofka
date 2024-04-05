@@ -1,1 +1,8 @@
-<p>manage works!</p>
+<ng-container [ngSwitch]="hasSession"> 
+    <ng-container *ngSwitchCase="true">
+      <app-landing [userActive]="userActive"></app-landing>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+      <app-login (authenticationSuccess)="changeToDashboard($event)"></app-login>
+    </ng-container>
+  </ng-container>

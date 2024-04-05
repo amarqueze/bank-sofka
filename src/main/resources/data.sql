@@ -5,4 +5,6 @@ INSERT INTO Users (nickname, password, client_id) VALUES ('alan.marquez', 'passw
 INSERT INTO Users (nickname, password, client_id) VALUES ('joe.doe', 'password2', 2);
 
 INSERT INTO Accounts (account_number, balance, status, client_id) VALUES ('123456789', 1000.00, 'ACTIVE', 1);
+INSERT INTO Accounts (account_number, balance, status, client_id) VALUES ('849382918', 0, 'INACTIVE', 1);
+INSERT INTO Accounts (account_number, balance, status, client_id) VALUES ('478392817', 200.00, 'ACTIVE', 1);
 INSERT INTO Accounts (account_number, balance, status, client_id) VALUES ('987654321', 500.00, 'ACTIVE', 2);

@@ -9,12 +9,16 @@ import { BankService } from './services/bank/bank.service';
 import { AdminComponent } from './pages/admin/admin.component';
 import { ManageComponent } from './pages/manage/manage.component';
 import { LocalStorageService } from './services/storage/local-storage.service';
+import { LoginComponent } from './pages/manage/components/login/login.component';
+import { LandingComponent } from './pages/manage/components/landing/landing.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
-    ManageComponent
+    ManageComponent,
+    LoginComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,

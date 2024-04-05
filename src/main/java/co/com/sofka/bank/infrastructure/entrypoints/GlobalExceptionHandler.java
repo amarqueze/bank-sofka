@@ -28,7 +28,7 @@ public class GlobalExceptionHandler {
                         .code(ClientNotFound.CODE)
                         .msg(e.getMessage())
                         .build(),
-                HttpStatus.UNAUTHORIZED);
+                HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(AccountNotFound.class)
@@ -38,7 +38,7 @@ public class GlobalExceptionHandler {
                         .code(AccountNotFound.CODE)
                         .msg(e.getMessage())
                         .build(),
-                HttpStatus.UNAUTHORIZED);
+                HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(IllegalArgumentException.class)

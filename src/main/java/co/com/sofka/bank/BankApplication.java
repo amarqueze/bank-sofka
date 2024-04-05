@@ -20,11 +20,6 @@ public class BankApplication {
 		SpringApplication.run(BankApplication.class, args);
 	}
 
-	@GetMapping("/")
-	public String index() {
-		return "index.html";
-	}
-
 	@Bean
 	public ClientAuthenticator getClientAuthenticator(H2AuthProvider provider) {
 		return new ClientAuthenticator(provider);

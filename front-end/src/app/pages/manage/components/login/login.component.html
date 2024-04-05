@@ -1,0 +1,8 @@
+<div style="width: 300px;margin: 0 auto; padding-top: 10px;">
+    <label for="nickname"><b> Usuario </b></label>
+    <input type="text" name="nickname" [(ngModel)]="auth.nickname">
+    <label for="password"><b> Contraseña </b></label>
+    <input type="password" name="password" [(ngModel)]="auth.password">
+    <span *ngIf="errMsg" style="color: red"> {{errMsg}} </span>
+    <button class="button-primary mt-5 mb-5" (click)="authenticate()"> Iniciar </button>
+</div>
