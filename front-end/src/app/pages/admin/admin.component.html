@@ -1,0 +1,47 @@
+<div class="admin">
+    <section class="item-search">
+        <label for="uname"><b>Cliente</b></label>
+        <input type="text" placeholder="Enter DNI" name="uname" [(ngModel)]="dni">
+        <button class="button-primary" (click)="findClient()"> Buscar </button>
+    </section>
+    <section class="item-operation">
+        <label><b>Operaciones</b></label>
+        <button class="button-primary mt-5" (click)="openModal()"> Deposito </button>
+        <button class="button-primary mt-5"> Nuevo Cliente  </button>
+        <button class="button-primary mt-5"> Nueva Tarjeta Crédito </button>
+        <button class="button-primary mt-5"> Nueva Tarjeta Débito </button>
+        <button class="button-primary mt-5"> Nueva Cuenta </button>
+    </section>
+    <section class="item-content">
+        <label for="dni"><b> Identificación </b></label>
+        <input type="text" name="dni" [(ngModel)]="clientSelected.dni" readonly>
+        <label for="name"><b>Nombre</b></label>
+        <input type="text" name="name" [(ngModel)]="clientSelected.name" readonly>
+        <label for="lastname"><b>Apellido</b></label>
+        <input type="text" name="lastname" [(ngModel)]="clientSelected.lastName" readonly>
+        <label for="phone"><b>Telefono</b></label>
+        <input type="text" name="phone" [(ngModel)]="clientSelected.phone">
+        <label for="address"><b>Dirección</b></label>
+        <input type="text" name="address" [(ngModel)]="clientSelected.address">
+        <button class="button-primary mt-5 mb-5"> Actualizar </button>
+        <hr>
+        <section class="mt-5">
+            <label><b>Cuentas Asociadas</b></label>
+            <div *ngFor="let account of clientSelected.accounts" class="mt-5 mb-5">
+                <strong>N°</strong> {{ account.accountNumber }} - <strong> {{ account.status }} </strong>
+            </div>
+        </section>
+    </section>
+</div>
+
+<div class="modal" *ngIf="showModal">
+    <div class="modal-content p-10">
+        <span class="close" title="Close Modal" (click)="showModal = false">&times;</span>
+        <label for="accountNumber"><b>Cuenta</b></label>
+        <input type="text" name="accountNumber" [(ngModel)]="deposit.destinationAccount">
+        <label for="amount"><b>Monto</b></label>
+        <input type="number" name="amount" [(ngModel)]="deposit.amount">
+        <span *ngIf="errMsg" class="" style="color: red"> {{ errMsg }} </span>
+        <button class="button-primary mt-5" (click)="toDeposit()"> Depositar </button>
+    </div>
+</div>

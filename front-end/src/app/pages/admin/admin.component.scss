@@ -1,0 +1,25 @@
+.admin {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 25% auto;
+    grid-template-areas:
+        "search content"
+        "operation content"
+        "operation content";
+
+    .item-search {
+        grid-area: search;
+        padding: 5%;
+    }
+    .item-content {
+        grid-area: content;
+        padding: 30px 10px 0px 30px;
+    }
+    .item-operation {
+        grid-area: operation;
+        padding: 5%;
+        height: 100%;
+    }
+}
