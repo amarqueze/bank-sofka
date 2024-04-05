@@ -13,7 +13,14 @@ import { Transfer } from '../../../../models/transfer.model';
 export class LandingComponent {
   @Input() userActive!: User;
 
-  client!: Client;
+  client: Client = {
+    dni: "",
+    name: "",
+    lastName: "",
+    address: "",
+    phone: "",
+    accounts: []
+  };
 
   accountDetail = {
     accountNumber: "",
@@ -37,8 +44,10 @@ export class LandingComponent {
     private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
-    this.bankService.getClientByDni(this.userActive.dni)
-      .subscribe(response => this.client = response);
+    if (this.userActive && this.userActive.dni) {
+      this.bankService.getClientByDni(this.userActive.dni)
+        .subscribe(response => this.client = response);
+    }
   }
 
   openModalAccount(accountNumber: string) {
@@ -82,7 +91,7 @@ export class LandingComponent {
         error: (err) => {
           this.transfer.destination = "";
           this.transfer.amount = 0;
-          this.errMsg = "No se puedo procesar la transacción, verifique la entrada";
+          this.errMsg = "No se pudo procesar la transacción, verifique la entrada";
         }
       }
     )
