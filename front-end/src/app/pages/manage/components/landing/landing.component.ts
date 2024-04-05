@@ -2,8 +2,8 @@ import { Component, Input } from '@angular/core';
 import { User } from '../../../../models/user.model';
 import { BankService } from '../../../../services/bank/bank.service';
 import { Client } from '../../../../models/client.model';
-import { Transfer } from '../../../../models/Transfer.model';
 import { LocalStorageService } from '../../../../services/storage/local-storage.service';
+import { Transfer } from '../../../../models/transfer.model';
 
 @Component({
   selector: 'app-landing',

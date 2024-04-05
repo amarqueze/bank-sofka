@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Client } from '../../models/client.model';
 import { Observable } from 'rxjs';
 import { Deposit } from '../../models/deposit.model';
-import { Transfer } from '../../models/Transfer.model';
+import { Transfer } from '../../models/transfer.model';
 
 @Injectable({
   providedIn: 'root'
